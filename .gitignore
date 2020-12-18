@@ -1,3 +1,2 @@
-/root/
-    .gitignore
-    **/Python/Estimator/venv/
+# Pycharm Virtual Enviroment files ignore to push to github repo
+venv/
