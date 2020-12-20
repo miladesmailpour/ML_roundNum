@@ -3,6 +3,7 @@ import Var
 import PlaceHolder
 import Opration
 import Linear_Regression
+import LossAndOptimizer
 
 
 def const_1():  # Constant node and Session
@@ -33,11 +34,16 @@ def linear_regression_graph():  # making simple Linear Regression Graph "y = wx 
     Linear_Regression.lr_tf_operation('print out Using tensorflow Operation')
 
 
+def loss_optimizer():  # Loss function and Optimizer"
+    LossAndOptimizer.simple_loss('print out without tensorflow Operation')
+
+
 if __name__ == '__main__':
     # const_1()
     # var_1()
     # placeholder_1()
     # operation_1()
-    linear_regression_graph()
+    # linear_regression_graph()
+    loss_optimizer()
     print("\nDone!")
 
