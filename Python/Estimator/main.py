@@ -2,8 +2,9 @@ import Const
 import Var
 import PlaceHolder
 import Opration
-import Linear_Regression
+import LinearRegressionGraph
 import LossAndOptimizer
+import Linear_Regression
 
 
 def const_1():  # Constant node and Session
@@ -30,12 +31,17 @@ def operation_1():  # Operation node
 
 
 def linear_regression_graph():  # making simple Linear Regression Graph "y = wx + b"
-    Linear_Regression.lr_not_tf_operation('print out without tensorflow Operation')
-    Linear_Regression.lr_tf_operation('print out Using tensorflow Operation')
+    LinearRegressionGraph.lr_not_tf_operation('print out without tensorflow Operation')
+    LinearRegressionGraph.lr_tf_operation('print out Using tensorflow Operation')
 
 
 def loss_optimizer():  # Loss function and Optimizer"
-    LossAndOptimizer.simple_loss('print out without tensorflow Operation')
+    # Not to excuse
+    print("LossAndOptimizer.simple_loss('print out without tensorflow Operation')")
+
+
+def linear_regression_model():  # Linear Regression Model
+    print('47 - 09:24 not completed')
 
 
 if __name__ == '__main__':
@@ -44,6 +50,7 @@ if __name__ == '__main__':
     # placeholder_1()
     # operation_1()
     # linear_regression_graph()
-    loss_optimizer()
+    # loss_optimizer()
+    linear_regression_model()
     print("\nDone!")
 
