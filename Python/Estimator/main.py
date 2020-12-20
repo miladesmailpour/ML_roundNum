@@ -2,6 +2,7 @@ import Const
 import Var
 import PlaceHolder
 import Opration
+import Linear_Regression
 
 
 def const_1():  # Constant node and Session
@@ -27,10 +28,16 @@ def operation_1():  # Operation node
     Opration.tf_operation_placeholder('Using Tensorflow Operation, adding constant and place holder node!')
 
 
+def linear_regression_graph():  # making simple Linear Regression Graph "y = wx + b"
+    Linear_Regression.lr_not_tf_operation('print out without tensorflow Operation')
+    Linear_Regression.lr_tf_operation('print out Using tensorflow Operation')
+
+
 if __name__ == '__main__':
     # const_1()
     # var_1()
     # placeholder_1()
-    operation_1()
+    # operation_1()
+    linear_regression_graph()
     print("\nDone!")
 
