@@ -1,5 +1,7 @@
 import Const
 import Var
+import PlaceHolder
+import Opration
 
 
 def const_1():  # Constant node and Session
@@ -14,8 +16,21 @@ def var_1():  # Variable node, initializing and assign
     Var.var_assign('Using Session and initialize, Eager execution is disable!')
 
 
+def placeholder_1():  # Place holder node
+    PlaceHolder.single_placeholder('Print out single place holder!')
+    PlaceHolder.multi_placeholder('Print out multi place holder!')
+
+
+def operation_1():  # Operation node
+    Opration.not_tf_operation_constant('NOT using Tensorflow Operation adding to constant nodes!')
+    Opration.tf_operation_constant('Using Tensorflow Operation adding to constant nodes!')
+    Opration.tf_operation_placeholder('Using Tensorflow Operation, adding constant and place holder node!')
+
+
 if __name__ == '__main__':
     # const_1()
     # var_1()
+    # placeholder_1()
+    operation_1()
     print("\nDone!")
 
