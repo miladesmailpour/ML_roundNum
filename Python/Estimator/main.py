@@ -41,7 +41,7 @@ def loss_optimizer():  # Loss function and Optimizer"
 
 
 def linear_regression_model():  # Linear Regression Model
-    print('47 - 09:24 not completed')
+    Linear_Regression.lr_model('Linear Regression Model:')
 
 
 if __name__ == '__main__':
