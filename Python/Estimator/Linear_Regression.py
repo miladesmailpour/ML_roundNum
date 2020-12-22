@@ -2,7 +2,7 @@ import tensorflow as tf
 
 tf.compat.v1.disable_eager_execution()
 session = tf.compat.v1.Session()
-
+# y = -x + b
 # y = Wx + b
 
 x_train = [1.0, 2.0, 3.0, 4.0]
