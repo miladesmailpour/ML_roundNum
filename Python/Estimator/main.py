@@ -5,6 +5,7 @@ import Opration
 import LinearRegressionGraph
 import LossAndOptimizer
 import Linear_Regression
+import Estimator_Model
 
 
 def const_1():  # Constant node and Session
@@ -44,6 +45,10 @@ def linear_regression_model():  # Linear Regression Model
     Linear_Regression.lr_model('Linear Regression Model:')
 
 
+def estimator():  # Linear Regression Model via Estimator
+    Estimator_Model.prebuilt_estimator('Linear Regression Model via Estimator:')
+
+
 if __name__ == '__main__':
     # const_1()
     # var_1()
@@ -51,6 +56,7 @@ if __name__ == '__main__':
     # operation_1()
     # linear_regression_graph()
     # loss_optimizer()
-    linear_regression_model()
+    # linear_regression_model()
+    estimator()
     print("\nDone!")
 
