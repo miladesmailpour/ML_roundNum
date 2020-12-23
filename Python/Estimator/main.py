@@ -6,6 +6,7 @@ import LinearRegressionGraph
 import LossAndOptimizer
 import Linear_Regression
 import Estimator_Model
+from LRM import Linear_Regression_Model as LRM_1
 
 
 def const_1():  # Constant node and Session
@@ -41,13 +42,17 @@ def loss_optimizer():  # Loss function and Optimizer"
     print("LossAndOptimizer.simple_loss('print out without tensorflow Operation')")
 
 
-def linear_regression_model():  # Linear Regression Model
+def simple_linear_regression_model():  # Linear Regression Model
     Linear_Regression.lr_model('Linear Regression Model:')
 
 
 def estimator():  # Linear Regression Model via Estimator
     Estimator_Model.prebuilt_estimator('Linear Regression Model via Estimator:')
     Estimator_Model.custom_estimator('Linear Regression Model via custom Estimator:')
+
+
+def final_model_lr():
+    LRM_1.lr_model("creating 5 files include needed file .pbtxt and .ckpt")
 
 
 if __name__ == '__main__':
@@ -57,7 +62,8 @@ if __name__ == '__main__':
     # operation_1()
     # linear_regression_graph()
     # loss_optimizer()
-    # linear_regression_model()
+    # simple_linear_regression_model()
     # estimator()
+    final_model_lr()
     print("\nDone!")
 
