@@ -13,6 +13,7 @@ x_predict = np.array([50.0, 100.0])
 
 
 def prebuilt_estimator(txt):
+    print(f'>_ {txt}')
     # y = Wx + b
     feature_column = tf.compat.v1.feature_column.numeric_column(key='x', shape=[1])
     features_columns = [feature_column]
@@ -40,3 +41,27 @@ def prebuilt_estimator(txt):
     print(estimator.evaluate(input_fn=train_input_fn))
     print(estimator.evaluate(input_fn=eval_input_fn))
     print(list(estimator.predict(input_fn=predict_input_fn)))
+
+
+def custom_estimator(txt):
+    print(f'>_ {txt}')
+
+
+# y = Wx + b
+def model_fn(features, labels, mode):
+    w = tf.compat.v1.get_variable(name='W', shape=[1], dtype=tf.float32)
+    b = tf.compat.v1.get_variable(name='b', shape=[1], dtype=tf.float32)
+    y = w * features['x'] + b
+
+    loss = tf.compat.v1.reduce_sum(input_tensor=tf.square(x=(y - labels)))
+    optimizer = tf.compat.v1.train.GradientDescentOptimizer(learning_rate=0.01)
+    global_step = tf.compat.v1.train.get_global_step()
+
+    train_step = tf.group(optimizer.minimize(loss=loss), tf.compat.v1.assign_add(global_step, 1))
+
+    return tf.estimator.EstimatorSpec(
+        mode=mode,
+        predictions=y,
+        loss=loss,
+        train_op=train_step
+    )
