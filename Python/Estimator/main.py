@@ -58,6 +58,6 @@ if __name__ == '__main__':
     # linear_regression_graph()
     # loss_optimizer()
     # linear_regression_model()
-    estimator()
+    # estimator()
     print("\nDone!")
 
