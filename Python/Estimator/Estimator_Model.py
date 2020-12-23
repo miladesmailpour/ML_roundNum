@@ -45,12 +45,40 @@ def prebuilt_estimator(txt):
 
 def custom_estimator(txt):
     print(f'>_ {txt}')
+    feature_column = tf.compat.v1.feature_column.numeric_column(key='x', shape=[1])
+    features_columns = [feature_column]
+    estimator = tf.compat.v1.estimator.Estimator(model_fn=model_fn)
+    input_fn = tf.compat.v1.estimator.inputs.numpy_input_fn(x={'x': x_train},
+                                                            y=y_train,
+                                                            batch_size=4,
+                                                            num_epochs=None,
+                                                            shuffle=True)
+    train_input_fn = tf.compat.v1.estimator.inputs.numpy_input_fn(x={'x': x_train},
+                                                                  y=y_train,
+                                                                  batch_size=4,
+                                                                  num_epochs=1000,
+                                                                  shuffle=False)
+    eval_input_fn = tf.compat.v1.estimator.inputs.numpy_input_fn(x={'x': x_eval},
+                                                                 y=y_eval,
+                                                                 batch_size=4,
+                                                                 num_epochs=1000,
+                                                                 shuffle=False)
+    predict_input_fn = tf.compat.v1.estimator.inputs.numpy_input_fn(x={'x': x_predict},
+                                                                    num_epochs=1,
+                                                                    shuffle=False)
+    estimator.train(input_fn=input_fn,
+                    steps=1000)
+    print(estimator.evaluate(input_fn=train_input_fn))
+    print(estimator.evaluate(input_fn=eval_input_fn))
+    print(list(estimator.predict(input_fn=predict_input_fn)))
 
 
 # y = Wx + b
 def model_fn(features, labels, mode):
-    w = tf.compat.v1.get_variable(name='W', shape=[1], dtype=tf.float32)
-    b = tf.compat.v1.get_variable(name='b', shape=[1], dtype=tf.float32)
+    if mode == 'infer':
+        labels = np.array([0, 0])
+    w = tf.compat.v1.get_variable(name='W', shape=[1], dtype=tf.float64)  # custom model need float64
+    b = tf.compat.v1.get_variable(name='b', shape=[1], dtype=tf.float64)  # custom model need float64
     y = w * features['x'] + b
 
     loss = tf.compat.v1.reduce_sum(input_tensor=tf.square(x=(y - labels)))

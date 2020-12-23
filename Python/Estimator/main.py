@@ -47,6 +47,7 @@ def linear_regression_model():  # Linear Regression Model
 
 def estimator():  # Linear Regression Model via Estimator
     Estimator_Model.prebuilt_estimator('Linear Regression Model via Estimator:')
+    Estimator_Model.custom_estimator('Linear Regression Model via custom Estimator:')
 
 
 if __name__ == '__main__':
